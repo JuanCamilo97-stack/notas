@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-let Notas;
+let notas;
 
 const connectDatabase = async () => {
     try {
-        if(!Notas){
-            Notas = mongoose.model('Notas', require('../models/notasModel').schema);
+        if(!notas){
+            notas = mongoose.model('notas', require('../models/notasModel').schema);
         }
       
-        await mongoose.connect('mongodb+srv://william271629:3218741020@clusternotasdb.6dhty9c.mongodb.net/')
+        await mongoose.connect('mongodb+srv://juanatehortua97:Camilo1010036676@cluster0.mg3yga1.mongodb.net/')
         .then(() => console.log('MongoDB connected'))
         .catch((err) => console.log(err));
         
@@ -24,37 +24,26 @@ const connectDatabase = async () => {
 const iniciardata = async () => {
     try {
         
-        await Notas.insertMany()[
+        await notas.insertMany()[
             {
-                nombre: 'cristian',
-                usuario: 12345667,
-                nota1: 1.5,
-                nota2: 3.5
+                nombre: 'deiby',
+                nota1: 3.1,
+                nota2: 4.9
                 
             },
             {
-                nombre: 'esteban',
-                nota1: 4,
-                nota2: 5
-            },
-            {
-                nombre: 'thomas',
-                nota1: 4,
+                nombre: 'Camilo',
+                nota1: 3,
                 nota2: 4.5
             },
             {
-                nombre: 'jacobo',
-                nota1: 4.2,
-                nota2: 3.9
-            },
-            {
-                nombre: 'juana',
-                nota1: 5,
-                nota2: 3.5
+                nombre: 'sergio',
+                nota1: 2.8,
+                nota2: 2.3
             }
         ];
 
-        await Notas.insertMany()
+        await notas.insertMany()
             console.log('Data duccessfully initialized');
         
     } catch (error) {

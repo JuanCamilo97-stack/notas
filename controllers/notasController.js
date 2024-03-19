@@ -2,7 +2,7 @@ const Notas = require('../models/notasModel');
 
 
 const notasController = {
-    // obterner todos los notas
+    // obterner todos las notas
     getAllNotas: async (req, res) => {
         try {
             const notas = await Notas.find()
@@ -52,13 +52,11 @@ const notasController = {
 
     },
 
-    //// lunes esto es nuevo /////
-
     updateNotas: async (req, res) => {
         try {
             const {nombre} = req.params;
 
-            const updatedNotas = await Notas.findOneAndUpdate({nombre}, {$set:{name:'esteban'}});
+            const updatedNotas = await Notas.findOneAndUpdate({nombre}, {$set:{name:'deiby'}});
             res.json(updatedNotas);
         } catch (error) {
             console.error('Error al crear los usuarios', error);
@@ -79,8 +77,6 @@ const notasController = {
             res.status(500).json({ message: 'Internal Server Error' });
         }
     }
-
-    // Otros métodos para manejar otras solicitudes relacionadas con los usuarios (actualizar, eliminar, etc.)
 
 };
 
